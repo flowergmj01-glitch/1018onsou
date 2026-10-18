@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 おんさんそうさん日本語授業 - 原因與理由文法特訓</title>
+    <style>
+        :root {
+            --primary: #6b46c1;       /* 主色調：皇家深紫 */
+            --primary-dark: #553c9a;  /* 按鈕懸停深紫 */
+            --secondary: #3b82f6;     /* 輔色調：寶石晴空藍 */
+            --tertiary: #4f46e5;      /* 點綴色：靛藍紫 */
+            --deep-violet: #7c3aed;   /* 主題強調：亮紫羅蘭 */
+            --bg: #f5f3ff;            /* 背景色：薰衣草柔白 */
+            --text: #2d2640;          /* 文字色：深紫灰（高對比易讀） */
+            --light-grey: #e2ddf0;    /* 邊框淺紫灰 */
+            --box-bg-1: #f3effb;      /* 紫色系卡片底色 */
+            --box-bg-2: #eff6ff;      /* 藍色系卡片底色 */
+            --box-bg-3: #eef2ff;      /* 靛藍系卡片底色 */
+        }
+
+        body {
+            font-family: 'Helvetica Neue', 'Microsoft JhengHei', 'PingFang TC', Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            /* 針對高解析度螢幕的字體基礎放大 */
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            width: 100%;
+            /* 適應 2560x1600 高解析度，加寬內容區塊 */
+            max-width: 1400px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 12px 35px rgba(107, 70, 193, 0.12);
+            padding: 50px 60px;
+            box-sizing: border-box;
+            border: 1px solid var(--light-grey);
+        }
+
+        h1 {
+            color: var(--primary);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 3px dashed var(--secondary);
+            padding-bottom: 15px;
+            margin-top: 60px;
+            font-size: 2em;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--secondary);
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .story-box {
+            background-color: var(--box-bg-1);
+            border-left: 8px solid var(--primary);
+            padding: 25px 35px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 1.1em;
+        }
+
+        .grammar-box {
+            background-color: var(--box-bg-2);
+            border-left: 8px solid var(--secondary);
+            padding: 25px 35px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .review-box {
+            background-color: var(--box-bg-3);
+            border-left: 8px solid var(--tertiary);
+            padding: 25px 35px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .practice-box {
+            background-color: #faf9fe;
+            border: 2px solid var(--light-grey);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .question-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        textarea, input[type="text"], select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 1em;
+            margin-top: 10px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background-color: white;
+            color: var(--text);
+        }
+
+        textarea:focus, input[type="text"]:focus, select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.15);
+            outline: none;
+        }
+
+        button.check-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(107, 70, 193, 0.25);
+        }
+
+        button.check-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .options label {
+            display: block;
+            background: white;
+            margin: 10px 0;
+            padding: 15px 20px;
+            border: 2px solid #e2ddf0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .options label:hover {
+            background: #f3effb;
+            border-color: var(--primary);
+        }
+
+        input[type="radio"] {
+            transform: scale(1.3);
+            margin-right: 15px;
+            accent-color: var(--primary);
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            animation: fadeIn 0.4s;
+        }
+
+        .feedback.correct { background: #ecfdf5; color: #047857; border-left: 5px solid #10b981; display: block; }
+        .feedback.wrong { background: #fef2f2; color: #b91c1c; border-left: 5px solid #ef4444; display: block; }
+        .feedback.info { background: #eff6ff; color: #1d4ed8; border-left: 5px solid #3b82f6; display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background-image: linear-gradient(to right, rgba(107, 70, 193, 0), rgba(107, 70, 193, 0.25), rgba(59, 130, 246, 0.25), rgba(59, 130, 246, 0));
+            margin: 60px 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 17px;
+                padding: 15px 10px;
+            }
+            .container {
+                padding: 25px 20px;
+            }
+            h1 { font-size: 1.9em; }
+            h2 { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>2026 おんさんそうさん日本語授業</h1>
+    <div class="subtitle">🔮 原因與理由的進階表達特訓 ✈️</div>
+
+    <div style="text-align: center; margin-bottom: 50px;">
+        <p>在完成上週的課前複習後，今天我們要學習三個表達「原因與結果」的實用文法：</p>
+        <h3 style="color: var(--primary); font-size: 1.8em; margin: 20px 0;">「〜て（で）」、「〜おかげで」、「〜せいで」</h3>
+    </div>
+
+    <h2 style="color: var(--tertiary); border-bottom-color: var(--secondary);">🔄 課前複習：三大助詞文法大考驗</h2>
+    <div class="review-box">
+        <h3>📌 複習：〜について / 〜によって / 〜にとって</h3>
+        <ul>
+            <li><b>〜について (關於...)：</b> 提示說話、調查、思考或書寫的「主題」。修飾名詞時用「<b>〜についての + 名詞</b>」。<br><i>例：日本の歴史について調べます。(調查關於日本的歷史。)</i></li>
+            <li><b>〜によって (根據... / 因...而異 / 由於... / 由...所做)：</b> 表達根據條件而改變、客觀原因，或被動句的創造者。<br><i>例：季節によって、果物の味が変わります。(根據季節不同，水果味道會改變。)</i></li>
+            <li><b>〜にとって (對...而言 / 從...的立場來看)：</b> 站在某個人或群體的立場給予「評價或判斷」。<br><i>例：私にとって、家族が一番大切です。(對我來說，家人是最重要的。)</i></li>
+        </ul>
+    </div>
+
+    <div class="practice-box">
+        <div class="question-title">📝 課前牛刀小試：五題選擇題複習 (請選擇最適合的答案)</div>
+
+        <p>1. 来週の旅行のスケジュール（　　）、みんなで話し合いましょう。<br><small style="color: #666;">(大家一起來討論關於下週旅行的行程表吧。)</small></p>
+        <div class="options">
+            <label><input type="radio" name="rev1" value="A"> A. について</label>
+            <label><input type="radio" name="rev1" value="B"> B. によって</label>
+            <label><input type="radio" name="rev1" value="C"> C. にとって</label>
+        </div>
+
+        <p style="margin-top: 30px;">2. 私（　　）、毎朝コーヒーを飲むことは一番の楽しみです。<br><small style="color: #666;">(對我來說，每天早上喝咖啡是最開心的事。)</small></p>
+        <div class="options">
+            <label><input type="radio" name="rev2" value="A"> A. について</label>
+            <label><input type="radio" name="rev2" value="B"> B. によって</label>
+            <label><input type="radio" name="rev2" value="C"> C. にとって</label>
+        </div>
+
+        <p style="margin-top: 30px;">3. ホテルの料金は、予約する時期や曜日（　　）違います。<br><small style="color: #666;">(飯店的費用，根據預約的時期或星期幾而有所不同。)</small></p>
+        <div class="options">
+            <label><input type="radio" name="rev3" value="A"> A. について</label>
+            <label><input type="radio" name="rev3" value="B"> B. によって</label>
+            <label><input type="radio" name="rev3" value="C"> C. にとって</label>
+        </div>
+
+        <p style="margin-top: 30px;">4. 昨日、本屋で日本文化（　　）本を買いました。<br><small style="color: #666;">(昨天在書店買了關於日本文化的書。 💡注意後面直接修飾名詞「本」！)</small></p>
+        <div class="options">
+            <label><input type="radio" name="rev4" value="A"> A. についての</label>
+            <label><input type="radio" name="rev4" value="B"> B. によっての</label>
+            <label><input type="radio" name="rev4" value="C"> C. にとっての</label>
+        </div>
+
+        <p style="margin-top: 30px;">5. この美しいお城は、400年前に有名な大名（　　）建てられました。<br><small style="color: #666;">(這座美麗的城堡，是在400年前由著名的大名所建造的。)</small></p>
+        <div class="options">
+            <label><input type="radio" name="rev5" value="A"> A. について</label>
+            <label><input type="radio" name="rev5" value="B"> B. によって</label>
+            <label><input type="radio" name="rev5" value="C"> C. にとって</label>
+        </div>
+
+        <button class="check-btn" onclick="checkReview()" style="background-color: var(--tertiary);">檢查複習答案 (共5題)</button>
+        <div id="fb-rev" class="feedback"></div>
+    </div>
+
+    <hr>
+
+    <h2>💜 主題一：旅途中的心情與突發狀況 (〜て / 〜で)</h2>
+    <div class="story-box">
+        <p>おんさん和そうさん抵達京都後，在旅館一邊喝茶一邊聊著今天的行程。</p>
+        <p>おんさん開心地說：「今日は美味しい抹茶パフェを食べ<b>て</b>、とても幸せでした！」 (今天吃了美味的抹茶百匯，覺得好幸福喔！)</p>
+        <p>そうさん點點頭：「そうですね！でも、帰りはバスがなかなか来なく<b>て</b>、少し心配しました。」 (是啊！不過回程時公車一直沒來，稍微擔心了一下。)</p>
+        <p>おんさん看著電視新聞說：「あ、昨日の大雨<b>で</b>、一部の電車が止まっていたそうですよ。」 (啊，聽說因為昨天的大雨，有一部分的電車停駛了呢。)</p>
+    </div>
+
+    <div class="grammar-box">
+        <h3>📌 文法一：〜て / 〜で (因為...所以...)</h3>
+        <p>用來連接「原因」與「自然而然產生的結果」。後面經常接續<b>情緒、感覺、狀態</b>（如：開心、難過、嚇一跳、困擾），或是<b>可能與不可能的狀態</b>（如：聽不見、不能去）。</p>
+        <p><b>【接續方法】</b></p>
+        <ul>
+            <li><b>動詞 / い形容詞（て形）</b>：<br>
+                例：友達に会え<b>て</b>、嬉しかったです。(因為能見到朋友，很開心。)<br>
+                例：頭が痛く<b>て</b>、勉強できません。(因為頭痛，沒辦法唸書。)</li>
+            <li><b>な形容詞 / 名詞 + で</b>：<br>
+                例：ボタンが複雑<b>で</b>、使い方がわかりません。(因為按鈕太複雜，不知道使用方法。)<br>
+                例：台風<b>で</b>、木が倒れました。(因為颱風，樹倒了。)</li>
+        </ul>
+        <p>💡 <b>重要限制：</b> 後句<b>不可以</b>接「命令、請求 (〜てください)、邀約 (〜ましょう)、主觀意志 (〜たい / 〜つもり)」！如果需要接意志表達，請改用「〜から」或「〜ので」。</p>
+    </div>
+
+    <div class="practice-box">
+        <div class="question-title">✍️ 翻譯特訓 (一)</div>
+
+        <p><b>第一題：</b> 聽到那個消息，我嚇了一跳 (那個消息 = そのニュース / 聽到 = 聞きます / 嚇了一跳 = びっくりしました)。</p>
+        <textarea id="t1-1" rows="2" placeholder="請輸入日文翻譯..."></textarea>
+
+        <p style="margin-top: 30px;"><b>第二題：</b> 因為感冒，今天不能去上班 (感冒 = 風邪 / 今天 = 今日 / 不能去上班 = 会社へ行けません)。<br><small>💡 提示：「風邪」是名詞，注意名詞表示原因時的接續方式喔！</small></p>
+        <textarea id="t1-2" rows="2" placeholder="請輸入日文翻譯..."></textarea>
+
+        <button class="check-btn" onclick="showAns1()">看參考解答</button>
+        <div id="fb-t1" class="feedback"></div>
+    </div>
+
+    <hr>
+
+    <h2 style="color: var(--secondary); border-bottom-color: var(--primary);">💙 主題二：迷路時的貴人相助 (〜おかげで)</h2>
+    <div class="story-box" style="border-left-color: var(--secondary); background-color: var(--box-bg-2);">
+        <p>第二天，兩人在前往古老神社的小巷子裡迷路了，幸好遇到了一位熱心的書店老闆。</p>
+        <p>そうさん鬆了一口氣說：「親切な店長さんが道を教えてくれた<b>おかげで</b>、無事に神社に着きましたね。」 (<b>多虧</b>親切的店長告訴我們路，我們才順利抵達神社呢。)</p>
+        <p>おんさん拿著相機笑著說：「本当ですね！それに、今日は天気がいい<b>おかげで</b>、きれいな写真がたくさん撮れました。」 (真的耶！而且<b>多虧</b>今天天氣很好，拍了好多漂亮的照片。)</p>
+        <p>そうさん看著導覽手冊說：「おんさんの完璧な準備の<b>おかげ</b>ですよ！」 (這都是<b>託</b>おんさん完美準備<b>的福</b>喔！)</p>
+    </div>
+
+    <div class="grammar-box" style="border-left-color: var(--primary); background-color: var(--box-bg-1);">
+        <h3>📌 文法二：〜おかげで / 〜おかげだ (多虧了... / 託...的福)</h3>
+        <p>當某個原因帶來了<b>「好的結果、正面的影響」</b>，並帶有說話者的<b>感謝或慶幸</b>心情時使用。</p>
+        <p><b>【接續方法】：「普通形」＋ おかげで（注意名詞與な形容詞！）</b></p>
+        <ul>
+            <li><b>動詞（普通形）+ おかげで</b>：<br>
+                例：先生が丁寧に教えてくれた<b>おかげで</b>、合格できました。(多虧老師細心教導，我及格了。)</li>
+            <li><b>い形容詞 + おかげで</b>：<br>
+                例：駅から近い<b>おかげで</b>、通勤がとても楽です。(多虧離車站很近，通勤非常輕鬆。)</li>
+            <li><b>な形容詞 + な + おかげで</b>：<br>
+                例：周りが静か<b>な</b>おかげで、よく眠れました。(多虧周圍很安靜，睡得很好。)</li>
+            <li><b>名詞 + の + おかげで</b>：<br>
+                例：新しい薬<b>の</b>おかげで、病気が治りました。(多虧了新藥，病治好了。)</li>
+        </ul>
+        <p>💡 <b>補充用法：</b> 放在句尾用「〜<b>のおかげです</b>」，表示「這都是多虧了... / 全託...的福」。</p>
+    </div>
+
+    <div class="practice-box">
+        <div class="question-title" style="color: var(--secondary);">✍️ 翻譯特訓 (二)</div>
+
+        <p><b>第一題：</b> 多虧每天練習，日語變好了 (每天練習 = 毎日練習しました / 日語變好了 = 日本語が上手になりました)。</p>
+        <textarea id="t2-1" rows="2" placeholder="請輸入日文翻譯..."></textarea>
+
+        <p style="margin-top: 30px;"><b>第二題：</b> 多虧有這本字典，我才能看懂這篇新聞 (這本字典 = この辞書 / 能看懂這篇新聞 = このニュースが読めました)。<br><small>💡 提示：「この辞書」是名詞，別忘了加上連接助詞「の」喔！</small></p>
+        <textarea id="t2-2" rows="2" placeholder="請輸入日文翻譯..."></textarea>
+
+        <button class="check-btn" onclick="showAns2()" style="background-color: var(--secondary);">看參考解答</button>
+        <div id="fb-t2" class="feedback"></div>
+    </div>
+
+    <hr>
+
+    <h2 style="color: var(--deep-violet); border-bottom-color: var(--tertiary);">🔮 主題三：睡過頭的早晨 (〜せいで)</h2>
+    <div class="story-box" style="border-left-color: var(--deep-violet); background-color: #f5f0ff;">
+        <p>旅行的第三天早上，陽光已經照進房間，兩人卻直到十點才驚醒！</p>
+        <p>おんさん抱著頭懊惱地說：「ああ、大変です！昨日、夜遅くまでゲームをした<b>せいで</b>、寝坊してしまいました…」 (啊啊，糟糕了！<b>都怪</b>昨天玩遊戲玩到太晚，結果睡過頭了...)</p>
+        <p>そうさん也揉著眼睛嘆氣：「私もです。夜中に隣の部屋がうるさかった<b>せいで</b>、ぜんぜん眠れませんでした。」 (我也是。<b>都怪</b>半夜隔壁房間太吵，完全沒睡好。)</p>
+        <p>おんさん苦笑著說：「朝ごはんを食べられなかったのは、全部私の<b>せい</b>ですね…ごめんなさい！」 (沒能吃到早餐，全都是<b>我的錯（我害的）</b>呢...對不起！)</p>
+    </div>
+
+    <div class="grammar-box" style="border-left-color: var(--tertiary); background-color: var(--box-bg-3);">
+        <h3>📌 文法三：〜せいで / 〜せいだ (都怪... / 都是因為...害得)</h3>
+        <p>與「おかげで」完全相反！當某個原因帶來了<b>「壞的結果、負面的影響」</b>，並帶有<b>怪罪、後悔、抱怨或不滿</b>的語氣時使用。</p>
+        <p><b>【接續方法】：「普通形」＋ せいで（接續規則與 おかげで 完全相同！）</b></p>
+        <ul>
+            <li><b>動詞（普通形）+ せいで</b>：<br>
+                例：甘いものを食べすぎた<b>せいで</b>、太ってしまいました。(都怪吃太多甜食，結果變胖了。)</li>
+            <li><b>い形容詞 + せいで</b>：<br>
+                例：仕事が忙しい<b>せいで</b>、旅行に行けません。(都怪工作太忙，去不了旅行。)</li>
+            <li><b>な形容詞 + な + せいで</b>：<br>
+                例：手続きが複雑<b>な</b>せいで、時間がかかりました。(都怪手續太複雜，花了很多時間。)</li>
+            <li><b>名詞 + の + せいで</b>：<br>
+                例：雨<b>の</b>せいで、試合が中止になりました。(都是因為下雨的關係，比賽中止了。)</li>
+        </ul>
+        <p>💡 <b>補充用法：</b> 放在句尾用「〜<b>のせいです / 〜せいだ</b>」，表示「都是...害的 / 都是...的錯」。</p>
+    </div>
+
+    <div class="practice-box">
+        <div class="question-title" style="color: var(--deep-violet);">✍️ 翻譯特訓 (三)</div>
+
+        <p><b>第一題：</b> 都怪電車延誤，我開會遲到了 (電車延誤了 = 電車が遅れました / 開會遲到了 = 会議に遅刻しました)。</p>
+        <textarea id="t3-1" rows="2" placeholder="請輸入日文翻譯..."></textarea>
+
+        <p style="margin-top: 30px;"><b>第二題：</b> 都是因為颱風的關係，飛機沒有飛 (颱風 = 台風 / 飛機 = 飛行機 / 沒有飛 = 飛びませんでした)。<br><small>💡 提示：帶有遺憾抱怨語氣，且「台風」是名詞，請注意接續！</small></p>
+        <textarea id="t3-2" rows="2" placeholder="請輸入日文翻譯..."></textarea>
+
+        <button class="check-btn" onclick="showAns3()" style="background-color: var(--deep-violet);">看參考解答</button>
+        <div id="fb-t3" class="feedback"></div>
+    </div>
+
+    <hr>
+
+    <h2 style="text-align: center; font-size: 2.2em; color: var(--primary);">😈 終極實力測驗：原因與理由大挑戰</h2>
+    <div style="text-align: center; margin-bottom: 30px;">
+        <p>今天學習的三個文法「〜て（で）」、「〜おかげで」、「〜せいで」以及接續方式都掌握了嗎？<br>請根據前後文的情緒（單純心情、正面感謝、負面怪罪）與接續規則，選出最正確的答案！</p>
+    </div>
+
+    <div class="practice-box">
+        <div class="question-title">Q1: 先輩が仕事を手伝ってくれた（　　）、早く帰ることができました。</div>
+        <p style="color: #666; font-size: 0.9em;">(中譯提示：多虧前輩幫忙工作，我才能提早回家。)</p>
+        <select id="final-q1">
+            <option value="">請選擇...</option>
+            <option value="A">せいで</option>
+            <option value="B">おかげで</option>
+            <option value="C">で</option>
+        </select>
+
+        <div class="question-title" style="margin-top: 40px;">Q2: 強い風（　　）、傘が壊れてしまいました。最悪です！</div>
+        <p style="color: #666; font-size: 0.9em;">(中譯提示：都怪強風的關係，雨傘壞掉了。真是糟透了！ 💡注意「強い風」是名詞片語)</p>
+        <select id="final-q2">
+            <option value="">請選擇...</option>
+            <option value="A">のせいで</option>
+            <option value="B">のおかげで</option>
+            <option value="C">なせいで</option>
+        </select>
+
+        <div class="question-title" style="margin-top: 40px;">Q3: 久しぶりに国へ帰って、家族に（　　）、本当に嬉しかったです。</div>
+        <p style="color: #666; font-size: 0.9em;">(中譯提示：好久沒回國了，能夠見到家人，真的非常開心。)</p>
+        <select id="final-q3">
+            <option value="">請選擇...</option>
+            <option value="A">会えるせいで</option>
+            <option value="B">会えて</option>
+            <option value="C">会うで</option>
+        </select>
+
+        <div class="question-title" style="margin-top: 40px;">Q4: 部屋が（　　）、よく勉強に集中できます。</div>
+        <p style="color: #666; font-size: 0.9em;">(中譯提示：多虧房間很安靜，能夠好好集中精神唸書。 💡「静か」是な形容詞)</p>
+        <select id="final-q4">
+            <option value="">請選擇...</option>
+            <option value="A">静かのおかげで</option>
+            <option value="B">静かなせいで</option>
+            <option value="C">静かなおかげで</option>
+        </select>
+
+        <button class="check-btn" onclick="checkFinal()" style="width: 100%; margin-top: 40px; font-size: 1.3em; background: linear-gradient(135deg, var(--primary), var(--secondary));">送出終極測驗</button>
+        <div id="fb-final" class="feedback"></div>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, var(--primary), var(--tertiary), var(--secondary)); color: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(107, 70, 193, 0.25);">
+        <h2 style="color: white; border: none; margin-top: 0;">🎉 お疲れ様でした！ (辛苦了！)</h2>
+        <p>能夠順利完成複習並滑到最下面，代表你已經徹底掌握「〜て（で）」、「〜おかげで」、「〜せいで」的精髓了！</p>
+        <p>期待おんさん和そうさん下一次的日本冒險！</p>
+        <div style="font-size: 60px; margin-top: 20px;">🔮🎓✈️</div>
+    </div>
+</div>
+
+<script>
+    // 檢查課前複習五題 (について / によって / にとって)
+    function checkReview() {
+        const q1 = document.querySelector('input[name="rev1"]:checked')?.value;
+        const q2 = document.querySelector('input[name="rev2"]:checked')?.value;
+        const q3 = document.querySelector('input[name="rev3"]:checked')?.value;
+        const q4 = document.querySelector('input[name="rev4"]:checked')?.value;
+        const q5 = document.querySelector('input[name="rev5"]:checked')?.value;
+        const fb = document.getElementById('fb-rev');
+
+        if (!q1 || !q2 || !q3 || !q4 || !q5) {
+            fb.className = 'feedback wrong';
+            fb.innerText = '⚠️ 請回答完五題複習題再送出喔！';
+            return;
+        }
+
+        // 正確答案：1:A, 2:C, 3:B, 4:A, 5:B
+        if (q1 === 'A' && q2 === 'C' && q3 === 'B' && q4 === 'A' && q5 === 'B') {
+            fb.className = 'feedback correct';
+            fb.innerHTML = `⭕ 太棒了！五題全部正確！！<br>
+            1. 討論「關於」行程的主題，用「<b>について</b>」。<br>
+            2. 站在「對我而言」的立場評價，用「<b>にとって</b>」。<br>
+            3. 「根據」時期或星期而不同，用「<b>によって</b>」。<br>
+            4. 「關於日本文化的」修飾後面的名詞「本」，用「<b>についての</b>」。<br>
+            5. 被動句中表示「由...所建造」，用「<b>によって</b>」。`;
+        } else {
+            fb.className = 'feedback wrong';
+            let errHtml = '❌ 哎呀，有題目選錯了喔！請看下方提示再試一次：<br>';
+            if (q1 !== 'A') errHtml += '・第1題：表示討論的「主題（關於...）」。<br>';
+            if (q2 !== 'C') errHtml += '・第2題：表示站在某人的「立場（對...來說）」。<br>';
+            if (q3 !== 'B') errHtml += '・第3題：表示「根據...而不同 / 因...而異」。<br>';
+            if (q4 !== 'A') errHtml += '・第4題：表示「關於...的書」，修飾名詞要用「〜についての」。<br>';
+            if (q5 !== 'B') errHtml += '・第5題：被動句「建てられました」的建造者，要用「〜によって」。';
+            fb.innerHTML = errHtml;
+        }
+    }
+
+    // 顯示翻譯題一參考解答 (〜て / 〜で)
+    function showAns1() {
+        const fb = document.getElementById('fb-t1');
+        fb.className = 'feedback info';
+        fb.innerHTML = `💡 <b>參考解答：</b><br>
+        1. そのニュースを<b>聞いて</b>、びっくりしました。<br>
+        2. <b>風邪で</b>、今日は会社へ行けません。<br>
+        <small>(解析：第一題動詞「聞きます」變成て形「聞いて」連接驚訝的情緒；第二題「風邪」是名詞，用「風邪で」表示原因。)</small>`;
+    }
+
+    // 顯示翻譯題二參考解答 (〜おかげで)
+    function showAns2() {
+        const fb = document.getElementById('fb-t2');
+        fb.className = 'feedback info';
+        fb.innerHTML = `💡 <b>參考解答：</b><br>
+        1. 毎日<b>練習したおかげで</b>、日本語が上手になりました。<br>
+        2. この辞書<b>のおかげで</b>、このニュースが読めました。<br>
+        <small>(解析：第一題動詞過去普通形「練習した」直接加「おかげで」；第二題名詞「この辞書」後面要加「の」再接「おかげで」。)</small>`;
+    }
+
+    // 顯示翻譯題三參考解答 (〜せいで)
+    function showAns3() {
+        const fb = document.getElementById('fb-t3');
+        fb.className = 'feedback info';
+        fb.innerHTML = `💡 <b>參考解答：</b><br>
+        1. 電車が<b>遅れたせいで</b>、会議に遅刻しました。<br>
+        2. 台風<b>のせいで</b>、飛行機が飛びませんでした。<br>
+        <small>(解析：兩題皆為負面結果與抱怨遺憾語氣。第一題用動詞普通形「遅れたせいで」；第二題名詞「台風」需加「の」變成「台風のせいで」。)</small>`;
+    }
+
+    // 檢查終極綜合測驗
+    function checkFinal() {
+        const q1 = document.getElementById('final-q1').value;
+        const q2 = document.getElementById('final-q2').value;
+        const q3 = document.getElementById('final-q3').value;
+        const q4 = document.getElementById('final-q4').value;
+        const fb = document.getElementById('fb-final');
+
+        if (!q1 || !q2 || !q3 || !q4) {
+            fb.className = 'feedback wrong';
+            fb.innerText = '⚠️ 還有題目沒選完喔！請完成四題後再送出。';
+            return;
+        }
+
+        // Q1: B (おかげで), Q2: A (のせいで), Q3: B (会えて), Q4: C (静かなおかげで)
+        if (q1 === 'B' && q2 === 'A' && q3 === 'B' && q4 === 'C') {
+            fb.className = 'feedback correct';
+            fb.innerHTML = `⭕ 恭喜你，四題全對！！你已經完全掌握今天的三個原因文法了！<br>
+            <b>詳細解析：</b><br>
+            ・Q1：提早下班是好結果且心懷感謝，選「<b>おかげで</b>」。<br>
+            ・Q2：雨傘壞掉是壞結果，且「強い風」是名詞，選「<b>のせいで</b>」。<br>
+            ・Q3：後面接單純的感情「嬉しかったです」，用動詞て形「<b>会えて</b>」。<br>
+            ・Q4：能集中精神是正面結果，且「静か」是な形容詞，需加「な」變成「<b>静かなおかげで</b>」。`;
+        } else {
+            fb.className = 'feedback wrong';
+            let errorMsg = '❌ 有地方弄混了喔，請看提示再仔細想想！<br>';
+            if (q1 !== 'B') errorMsg += '・Q1：前輩幫忙讓我能提早回家，這是值得感謝的「正面結果」喔！<br>';
+            if (q2 !== 'A') errorMsg += '・Q2：雨傘壞掉是「負面結果」，而且「風（かぜ）」是名詞，接續時需要加哪個助詞呢？<br>';
+            if (q3 !== 'B') errorMsg += '・Q3：單純表達「因為能見到家人，所以很開心」，使用動詞て形即可。<br>';
+            if (q4 !== 'C') errorMsg += '・Q4：「静か」是な形容詞，加上正面結果「能集中精神」，請注意な形容詞的接續！';
+            fb.innerHTML = errorMsg;
+        }
+    }
+</script>
+</body>
+</html>
